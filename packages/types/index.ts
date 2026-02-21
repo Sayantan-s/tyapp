@@ -46,6 +46,25 @@ export type TTMessage = z.infer<typeof TTMessageSchema>;
 export const ChatMessageSchema = TTMessageSchema;
 export type ChatMessage = TTMessage;
 
+// DB Schemas (Prisma compatible)
+export const DbMessageSchema = z.object({
+  id: z.string().uuid(),
+  mode: ChatModeSchema,
+  type: MessageTypeSchema,
+  sender: z.string(),
+  body: z.string(),
+  metadata: z.any().nullable(),
+  createdAt: z.date(),
+});
+export type DbMessage = z.infer<typeof DbMessageSchema>;
+
+export const DbUserSchema = z.object({
+  handle: z.string(),
+  pubKey: z.string(),
+  lastSeen: z.date(),
+});
+export type DbUser = z.infer<typeof DbUserSchema>;
+
 // Auth Schemas
 export const AuthChallengeSchema = z.object({
   nonce: z.string(),

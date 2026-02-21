@@ -1,0 +1,32 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Mode {
+  CHILL
+  DEV
+}
+
+model Message {
+  id        String   @id @default(uuid())
+  mode      Mode
+  type      String
+  sender    String   // Handle
+  body      String
+  metadata  Json?
+  createdAt DateTime @default(now())
+}
+
+model User {
+  handle    String   @id
+  pubKey    String   @unique
+  lastSeen  DateTime @updatedAt
+}

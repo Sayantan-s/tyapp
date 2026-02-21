@@ -7,13 +7,16 @@
     "dev": "nest start --watch",
     "build": "nest build",
     "lint": "oxlint .",
-    "format": "oxfmt ."
+    "format": "oxfmt .",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
     "@nestjs/core": "^11.0.1",
+    "@nestjs/platform-express": "^11.1.14",
     "@nestjs/platform-socket.io": "^11.0.1",
     "@nestjs/websockets": "^11.0.1",
+    "@prisma/client": "^6.4.1",
     "@repo/crypto": "*",
     "@repo/types": "*",
     "reflect-metadata": "^0.2.2",
@@ -24,6 +27,7 @@
     "@nestjs/cli": "^11.0.0",
     "@nestjs/schematics": "^11.0.0",
     "@types/uuid": "^11.0.0",
+    "prisma": "^6.4.1",
     "typescript": "5.9.2"
   }
 }
