@@ -1,0 +1,22 @@
+{
+  "name": "@repo/crypto",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./index.ts"
+  },
+  "scripts": {
+    "lint": "oxlint .",
+    "format": "oxfmt .",
+    "check-types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "sshpk": "^1.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.0",
+    "@types/sshpk": "^1.17.4",
+    "typescript": "5.9.2"
+  }
+}
