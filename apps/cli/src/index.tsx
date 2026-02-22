@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { render, Box, Text, useInput } from "ink";
 import { io, Socket } from "socket.io-client";
-import { getLocalPrivateKey, signString } from "@repo/crypto";
+import {
+  getLocalPrivateKey,
+  getLocalPublicKey,
+  signString,
+} from "@repo/crypto";
 import type { ChatMessage, AuthChallenge } from "@repo/types";
 import { create } from "zustand";
 
@@ -19,30 +23,41 @@ const useChatStore = create<ChatState>((set) => ({
   mode: "CHILL",
   setMode: (mode) => set({ mode }),
 }));
-
+let count = 0;
 const App = () => {
+  console.log("Render ui....", count);
+  count++;
   const [input, setInput] = useState("");
   const { messages, addMessage, mode } = useChatStore();
   const [socket, setSocket] = useState<Socket | null>(null);
   const [authenticated, setAuthenticated] = useState(false);
 
   useEffect(() => {
-    const s = io("http://localhost:3001");
+    const s = io("http://localhost:3002");
     setSocket(s);
 
     s.on("auth_challenge", (challenge: AuthChallenge) => {
       try {
         const privKey = getLocalPrivateKey();
+        const pubKey = getLocalPublicKey();
         const signature = signString(challenge.nonce, privKey);
         s.emit("auth_verify", {
           handle: "user", // Default for now
           signature,
           nonce: challenge.nonce,
+          publicKey: pubKey,
         });
-        setAuthenticated(true);
       } catch (e) {
         console.error("Auth failed:", e);
       }
+    });
+
+    s.on("auth_success", (_data: { handle: string; fingerprint: string }) => {
+      setAuthenticated(true);
+    });
+
+    s.on("auth_error", (data: { message: string }) => {
+      console.error("Auth error:", data.message);
     });
 
     s.on("message", (msg: ChatMessage) => {

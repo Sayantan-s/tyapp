@@ -76,5 +76,6 @@ export const AuthResponseSchema = z.object({
   handle: z.string(),
   signature: z.string(),
   nonce: z.string(),
+  publicKey: z.string(),
 });
 export type AuthResponse = z.infer<typeof AuthResponseSchema>;

@@ -1,4 +1,4 @@
-import * as sshpk from "sshpk";
+import sshpk from "sshpk";
 import * as fs from "fs";
 import * as path from "path";
 import * as os from "os";
@@ -25,7 +25,8 @@ export function getLocalPrivateKey(
 
 export function signString(data: string, privateKeyStr: string): string {
   const key = sshpk.parsePrivateKey(privateKeyStr);
-  const signer = key.createSign("sha256");
+  const hash = key.type === "ed25519" ? "sha512" : "sha256";
+  const signer = key.createSign(hash);
   signer.update(data);
   const signature = signer.sign();
   return signature.toString("ssh");
@@ -38,12 +39,13 @@ export function verifySignature(
 ): boolean {
   try {
     const key = sshpk.parseKey(publicKeyStr);
+    const hash = key.type === "ed25519" ? "sha512" : "sha256";
     const signature = sshpk.parseSignature(
       signatureStr,
-      key.type as sshpk.AlgorithmType,
+      key.type as any,
       "ssh",
     );
-    const verifier = key.createVerify("sha256");
+    const verifier = key.createVerify(hash);
     verifier.update(data);
     return verifier.verify(signature);
   } catch (e) {
