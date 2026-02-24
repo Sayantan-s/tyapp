@@ -3,7 +3,7 @@
 
 generator client {
   provider = "prisma-client"
-  output   = "../src/generated/prisma"
+  output   = "../dist/generated"
 }
 
 datasource db {
@@ -23,10 +23,14 @@ model Message {
   body      String
   metadata  Json?
   createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model User {
-  handle    String   @id
+  id        String   @id @default(uuid())
+  handle    String   @unique
   pubKey    String   @unique
   lastSeen  DateTime @updatedAt
 }
+
+
