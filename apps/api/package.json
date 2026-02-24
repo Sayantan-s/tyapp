@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "nest start --watch",
+    "dev": "nest start --watch -b swc",
     "build": "nest build",
     "lint": "oxlint .",
     "format": "oxfmt .",
@@ -27,6 +27,8 @@
   "devDependencies": {
     "@nestjs/cli": "^11.0.0",
     "@nestjs/schematics": "^11.0.0",
+    "@swc/cli": "^0.8.0",
+    "@swc/core": "^1.15.13",
     "@types/uuid": "^11.0.0",
     "prisma": "^7.4.1",
     "typescript": "5.9.2"
