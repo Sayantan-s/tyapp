@@ -28,7 +28,7 @@ model Message {
 
 model User {
   id        String   @id @default(uuid())
-  handle    String   @unique
+  handle    String   @unique @db.VarChar(255)
   pubKey    String   @unique
   lastSeen  DateTime @updatedAt
 }

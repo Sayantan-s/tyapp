@@ -1,0 +1,19 @@
+{
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.workingDirectories": [
+    "./apps/api",
+    "./apps/cli",
+    "./packages/crypto",
+    "./packages/types",
+    "./packages/typescript-config"
+  ],
+  "search.exclude": {
+    "**/.turbo": true,
+    "**/dist": true,
+    "**/node_modules": true
+  }
+}

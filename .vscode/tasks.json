@@ -1,0 +1,25 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Full App (External Terminal)",
+      "type": "shell",
+      "command": "yarn dev",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "group": "run"
+      },
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "runOptions": {
+        "runOn": "default"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
