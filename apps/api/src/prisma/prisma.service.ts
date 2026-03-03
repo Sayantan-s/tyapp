@@ -1,13 +1,16 @@
-import { PG_URI } from "./../../config/settings";
 import { Injectable, OnModuleInit } from "@nestjs/common";
 import { PrismaClient } from "../generated/prisma/client.js";
 import { PrismaPg } from "@prisma/adapter-pg";
+import { ConfigService } from "@nestjs/config";
 
 @Injectable()
 export class PrismaService extends PrismaClient implements OnModuleInit {
-  constructor() {
-    const adapter = new PrismaPg({ connectionString: PG_URI });
-    super({ adapter });
+  constructor(private configService: ConfigService) {
+    super({
+      adapter: new PrismaPg({
+        connectionString: this.configService.get("PG_URI"),
+      }),
+    });
   }
 
   async onModuleInit() {

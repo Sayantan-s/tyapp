@@ -39,3 +39,4 @@ yarn-error.log*
 
 *.tex
 GEMINI.md
+.claude/**/*
