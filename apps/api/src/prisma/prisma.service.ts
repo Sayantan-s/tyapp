@@ -5,11 +5,10 @@ import { ConfigService } from "@nestjs/config";
 
 @Injectable()
 export class PrismaService extends PrismaClient implements OnModuleInit {
-  constructor(private configService: ConfigService) {
+  constructor(configService: ConfigService) {
+    const connectionString = configService.get<string>("PG_URI");
     super({
-      adapter: new PrismaPg({
-        connectionString: this.configService.get("PG_URI"),
-      }),
+      adapter: new PrismaPg({ connectionString }),
     });
   }
 

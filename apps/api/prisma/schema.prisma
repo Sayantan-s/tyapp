@@ -30,7 +30,7 @@ model User {
   id        String   @id @default(uuid())
   handle    String   @unique @db.VarChar(255)
   pubKey    String   @unique
-  lastSeen  DateTime @updatedAt
+  lastSeen  DateTime @default(now()) @updatedAt
 }
 
 
