@@ -17,6 +17,7 @@
     "@nestjs/platform-express": "^11.1.14",
     "@nestjs/platform-socket.io": "^11.0.1",
     "@nestjs/websockets": "^11.0.1",
+    "@opentui/core": "^0.1.87",
     "@prisma/adapter-pg": "^7.4.1",
     "@prisma/client": "^7.4.1",
     "@repo/crypto": "*",
