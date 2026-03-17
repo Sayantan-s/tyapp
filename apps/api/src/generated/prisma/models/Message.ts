@@ -31,6 +31,7 @@ export type MessageMinAggregateOutputType = {
   sender: string | null
   body: string | null
   createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type MessageMaxAggregateOutputType = {
@@ -40,6 +41,7 @@ export type MessageMaxAggregateOutputType = {
   sender: string | null
   body: string | null
   createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type MessageCountAggregateOutputType = {
@@ -50,6 +52,7 @@ export type MessageCountAggregateOutputType = {
   body: number
   metadata: number
   createdAt: number
+  updatedAt: number
   _all: number
 }
 
@@ -61,6 +64,7 @@ export type MessageMinAggregateInputType = {
   sender?: true
   body?: true
   createdAt?: true
+  updatedAt?: true
 }
 
 export type MessageMaxAggregateInputType = {
@@ -70,6 +74,7 @@ export type MessageMaxAggregateInputType = {
   sender?: true
   body?: true
   createdAt?: true
+  updatedAt?: true
 }
 
 export type MessageCountAggregateInputType = {
@@ -80,6 +85,7 @@ export type MessageCountAggregateInputType = {
   body?: true
   metadata?: true
   createdAt?: true
+  updatedAt?: true
   _all?: true
 }
 
@@ -163,6 +169,7 @@ export type MessageGroupByOutputType = {
   body: string
   metadata: runtime.JsonValue | null
   createdAt: Date
+  updatedAt: Date
   _count: MessageCountAggregateOutputType | null
   _min: MessageMinAggregateOutputType | null
   _max: MessageMaxAggregateOutputType | null
@@ -194,6 +201,7 @@ export type MessageWhereInput = {
   body?: Prisma.StringFilter<"Message"> | string
   metadata?: Prisma.JsonNullableFilter<"Message">
   createdAt?: Prisma.DateTimeFilter<"Message"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Message"> | Date | string
 }
 
 export type MessageOrderByWithRelationInput = {
@@ -204,6 +212,7 @@ export type MessageOrderByWithRelationInput = {
   body?: Prisma.SortOrder
   metadata?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type MessageWhereUniqueInput = Prisma.AtLeast<{
@@ -217,6 +226,7 @@ export type MessageWhereUniqueInput = Prisma.AtLeast<{
   body?: Prisma.StringFilter<"Message"> | string
   metadata?: Prisma.JsonNullableFilter<"Message">
   createdAt?: Prisma.DateTimeFilter<"Message"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Message"> | Date | string
 }, "id">
 
 export type MessageOrderByWithAggregationInput = {
@@ -227,6 +237,7 @@ export type MessageOrderByWithAggregationInput = {
   body?: Prisma.SortOrder
   metadata?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _count?: Prisma.MessageCountOrderByAggregateInput
   _max?: Prisma.MessageMaxOrderByAggregateInput
   _min?: Prisma.MessageMinOrderByAggregateInput
@@ -243,6 +254,7 @@ export type MessageScalarWhereWithAggregatesInput = {
   body?: Prisma.StringWithAggregatesFilter<"Message"> | string
   metadata?: Prisma.JsonNullableWithAggregatesFilter<"Message">
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Message"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Message"> | Date | string
 }
 
 export type MessageCreateInput = {
@@ -253,6 +265,7 @@ export type MessageCreateInput = {
   body: string
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type MessageUncheckedCreateInput = {
@@ -263,6 +276,7 @@ export type MessageUncheckedCreateInput = {
   body: string
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type MessageUpdateInput = {
@@ -273,6 +287,7 @@ export type MessageUpdateInput = {
   body?: Prisma.StringFieldUpdateOperationsInput | string
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type MessageUncheckedUpdateInput = {
@@ -283,6 +298,7 @@ export type MessageUncheckedUpdateInput = {
   body?: Prisma.StringFieldUpdateOperationsInput | string
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type MessageCreateManyInput = {
@@ -293,6 +309,7 @@ export type MessageCreateManyInput = {
   body: string
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type MessageUpdateManyMutationInput = {
@@ -303,6 +320,7 @@ export type MessageUpdateManyMutationInput = {
   body?: Prisma.StringFieldUpdateOperationsInput | string
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type MessageUncheckedUpdateManyInput = {
@@ -313,6 +331,7 @@ export type MessageUncheckedUpdateManyInput = {
   body?: Prisma.StringFieldUpdateOperationsInput | string
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type MessageCountOrderByAggregateInput = {
@@ -323,6 +342,7 @@ export type MessageCountOrderByAggregateInput = {
   body?: Prisma.SortOrder
   metadata?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type MessageMaxOrderByAggregateInput = {
@@ -332,6 +352,7 @@ export type MessageMaxOrderByAggregateInput = {
   sender?: Prisma.SortOrder
   body?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type MessageMinOrderByAggregateInput = {
@@ -341,6 +362,7 @@ export type MessageMinOrderByAggregateInput = {
   sender?: Prisma.SortOrder
   body?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type StringFieldUpdateOperationsInput = {
@@ -365,6 +387,7 @@ export type MessageSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   body?: boolean
   metadata?: boolean
   createdAt?: boolean
+  updatedAt?: boolean
 }, ExtArgs["result"]["message"]>
 
 export type MessageSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -375,6 +398,7 @@ export type MessageSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   body?: boolean
   metadata?: boolean
   createdAt?: boolean
+  updatedAt?: boolean
 }, ExtArgs["result"]["message"]>
 
 export type MessageSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -385,6 +409,7 @@ export type MessageSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   body?: boolean
   metadata?: boolean
   createdAt?: boolean
+  updatedAt?: boolean
 }, ExtArgs["result"]["message"]>
 
 export type MessageSelectScalar = {
@@ -395,9 +420,10 @@ export type MessageSelectScalar = {
   body?: boolean
   metadata?: boolean
   createdAt?: boolean
+  updatedAt?: boolean
 }
 
-export type MessageOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "mode" | "type" | "sender" | "body" | "metadata" | "createdAt", ExtArgs["result"]["message"]>
+export type MessageOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "mode" | "type" | "sender" | "body" | "metadata" | "createdAt" | "updatedAt", ExtArgs["result"]["message"]>
 
 export type $MessagePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Message"
@@ -410,6 +436,7 @@ export type $MessagePayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     body: string
     metadata: runtime.JsonValue | null
     createdAt: Date
+    updatedAt: Date
   }, ExtArgs["result"]["message"]>
   composites: {}
 }
@@ -840,6 +867,7 @@ export interface MessageFieldRefs {
   readonly body: Prisma.FieldRef<"Message", 'String'>
   readonly metadata: Prisma.FieldRef<"Message", 'Json'>
   readonly createdAt: Prisma.FieldRef<"Message", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"Message", 'DateTime'>
 }
     
 

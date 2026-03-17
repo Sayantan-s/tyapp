@@ -599,13 +599,15 @@ export const MessageScalarFieldEnum = {
   sender: 'sender',
   body: 'body',
   metadata: 'metadata',
-  createdAt: 'createdAt'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type MessageScalarFieldEnum = (typeof MessageScalarFieldEnum)[keyof typeof MessageScalarFieldEnum]
 
 
 export const UserScalarFieldEnum = {
+  id: 'id',
   handle: 'handle',
   pubKey: 'pubKey',
   lastSeen: 'lastSeen'
